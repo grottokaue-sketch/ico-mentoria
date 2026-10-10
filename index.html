@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ICP na prática · Mentoria</title>
+<meta name="description" content="Material interativo da mentoria de ICP: slides, frameworks e deveres de casa para preencher durante os encontros.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <button id="btnMenu" class="icon-btn" aria-label="Abrir ou fechar o menu">☰</button>
+  <div class="brand"><b>ICP na prática</b><span id="startupName"></span></div>
+  <div class="progress" title="Progresso geral dos frameworks"><div id="progBar"></div><span id="progTxt">0%</span></div>
+  <div class="actions">
+    <span id="saveState" class="save">Salvo neste navegador</span>
+    <button id="btnNotes" class="btn ghost" title="Notas do mentor (tecla N)">Notas do mentor</button>
+    <button id="btnPanel" class="btn ghost">Painel</button>
+    <div class="menu">
+      <button id="btnExport" class="btn">Exportar ▾</button>
+      <div id="exportMenu" class="dropdown" hidden>
+        <button data-act="xlsx">Baixar Excel (.xlsx)</button>
+        <button data-act="json">Baixar backup (.json)</button>
+        <button data-act="import">Importar backup</button>
+        <button data-act="print">Imprimir ou salvar PDF</button>
+        <button data-act="send">Enviar ao mentor</button>
+        <button data-act="reset" class="danger">Limpar tudo</button>
+      </div>
+    </div>
+    <input type="file" id="fileImport" accept=".json,application/json" hidden>
+  </div>
+</header>
+<div class="shell">
+  <nav id="sidebar" class="sidebar" aria-label="Índice"></nav>
+  <main id="stage" class="stage" tabindex="-1"></main>
+</div>
+<footer class="navbar">
+  <button id="btnPrev" class="btn ghost">← Anterior</button>
+  <span id="slideCount"></span>
+  <button id="btnNext" class="btn">Próximo →</button>
+</footer>
+<aside id="notesPanel" class="notes" hidden>
+  <div class="notes-head"><b>Notas do mentor</b><button id="notesClose" class="icon-btn" aria-label="Fechar">×</button></div>
+  <div id="notesBody"></div>
+</aside>
+<div id="toast" class="toast" hidden></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+<script src="js/config.js" defer></script>
+<script src="js/tools.js" defer></script>
+<script src="js/data.js" defer></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>
